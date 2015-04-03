@@ -81,7 +81,8 @@ source $ZSH/oh-my-zsh.sh
 $(boot2docker shellinit)
 
 source ~/.bash_profile
-
+alias tat='tmux attach -t '
+alias tls='tmux ls'
 docker-enter () {
   boot2docker ssh '[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target bbrock/nsenter'
   boot2docker ssh -t sudo /var/lib/boot2docker/docker-enter "$@"
