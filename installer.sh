@@ -14,4 +14,4 @@ ln -s ${BASEDIR}/.zshrc ~/.zshrc
 
 rm ~/.gitconfig
 ## git
-ln -s ${BASEDIR}/gitconfig ~/.gitconfig
+ln -s ${BASEDIR}/.gitconfig ~/.gitconfig
