@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/bbrock/DotFiles'
-let g:netrw_dirhist_2='/Users/bbrock/DotFiles/vim'
-let g:netrw_dirhist_3='/Users/bbrock/DotFiles/vim/bundle'
-let g:netrw_dirhist_4='/Users/bbrock/DotFiles'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/bbrock/SpartanSystems/southern_health_partners/app/models'
+let g:netrw_dirhist_2='/Users/bbrock/SpartanSystems/southern_health_partners/app'
+let g:netrw_dirhist_3='/Users/bbrock/SpartanSystems/southern_health_partners/app/uploaders'
+let g:netrw_dirhist_4='/Users/bbrock/SpartanSystems/southern_health_partners/spec/factories'
+let g:netrw_dirhist_5='/Users/bbrock/SpartanSystems/southern_health_partners/spec'
+let g:netrw_dirhist_6='/Users/bbrock/SpartanSystems/southern_health_partners'

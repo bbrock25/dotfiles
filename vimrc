@@ -76,3 +76,10 @@ let g:netrw_list_hide .= '\.keep$,'
 
 :highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 :match ExtraWhitespace /\s\+$/
+
+"Spec.vim mapping
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
