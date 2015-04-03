@@ -15,6 +15,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jgdavey/tslime.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -78,6 +80,8 @@ let g:netrw_list_hide .= '\.keep$,'
 :match ExtraWhitespace /\s\+$/
 
 "Spec.vim mapping
+let g:rspec_command = "! ./newton rspec --drb {spec}"
+let g:rspec_command = 'call Send_to_Tmux("./newton rspec --drb {spec}\n")'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
