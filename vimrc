@@ -13,10 +13,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'slim-template/vim-slim'
+
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jgdavey/tslime.vim'
+Plugin 'Valloric/YouCompleteMe'
+
 
 
 " All of your Plugins must be added before the following line
@@ -55,16 +59,23 @@ set autoindent
 syntax enable
 colorscheme flattown
 
-imap <C-c> <CR><Esc>O
 imap jj <Esc>
 
-au FileType javascript call JavaScriptFold()
 set backspace=indent,eol,start
 set rnu
 
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\%d8242/'/ge
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\%d166/|/ge
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\%d8722/-/ge
+
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.rb :call DeleteTrailingWS()
 
 nnoremap <F5> :buffers<CR>:buffer<Space>
 set pastetoggle=<F2>
@@ -80,8 +91,7 @@ let g:netrw_list_hide .= '\.keep$,'
 :match ExtraWhitespace /\s\+$/
 
 "Spec.vim mapping
-let g:rspec_command = "! ./newton rspec --drb {spec}"
-let g:rspec_command = 'call Send_to_Tmux("./newton rspec --drb {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("./newton rspec {spec}\n")'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
