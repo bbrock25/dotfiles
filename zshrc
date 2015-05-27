@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/Cellar/:$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -78,16 +78,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-$(boot2docker shellinit)
 
 source ~/.bash_profile
 alias tat='tmux attach -t'
 alias tls='tmux ls'
-docker-enter () {
-  boot2docker ssh '[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target bbrock/nsenter'
-  boot2docker ssh -t sudo /var/lib/boot2docker/docker-enter "$@"
-}
+alias dcb='docker-compose build'
+alias dcu='docker-compose up'
+alias bi='$(boot2docker shellinit)'
+alias b2d='boot2docker'
 
+source /usr/local/opt/chruby/share/chruby/chruby.sh && chruby 2.2.2
+alias gla='git config --get-regexp alias'
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh && chruby 2.2.1
-echo "USING RUBY: " $(ruby --version)
+fortune | cowsay | lolcat

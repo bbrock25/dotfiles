@@ -19,5 +19,9 @@
 	b = branch
 	s = status
 	c = commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	editor = vim
+	excludesfile = /Users/bbrock/.gitignore_global
+[push]
+	default = simple
