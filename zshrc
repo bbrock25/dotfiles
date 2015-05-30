@@ -81,6 +81,7 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.bash_profile
 alias tat='tmux attach -t'
+alias tns='tmux new -s'
 alias tls='tmux ls'
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'

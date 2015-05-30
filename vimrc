@@ -8,13 +8,13 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'benmills/vimux'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jgdavey/tslime.vim'
@@ -56,8 +56,10 @@ syntax enable
 colorscheme flattown
 
 imap jj <Esc>
+map <Leader>s :w<CR>
 
 set backspace=indent,eol,start
+
 set relativenumber
 set number
 set clipboard=unnamed
@@ -78,19 +80,20 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.slim :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
 
-nnoremap <F5> :buffers<CR>:buffer<Space>
+nmap <F5> :buffers<CR>:buffer<Space>
 set pastetoggle=<F2>
 
 "Spec.vim mapping
 let g:rspec_command = 'call Send_to_Tmux("./newton bundle exec rspec {spec}\n")'
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>T :call RunCurrentSpecFile()<CR>
+map <Leader>S :call RunNearestSpec()<CR>
+map <Leader>L :call RunLastSpec()<CR>
+map <Leader>A :call RunAllSpecs()<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>pi :PluginInstall<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -134,8 +137,14 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vimux mappings
+" => Syntastic Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
- map <Leader>vl :VimuxRunLastCommand<CR>
- map <Leader>vq :VimuxCloseRunner<CR>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
